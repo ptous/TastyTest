@@ -26,6 +26,8 @@ RUN bundle install
 RUN rails new sofa
 COPY database.yml $APP_HOME/sofa/config
 RUN cd sofa && rails generate comfy:cms
+
+COPY db_init /bin
+RUN chmod 555 /bin/db_init
+
 WORKDIR $APP_HOME/sofa
-#RUN cd app && rake db:migrate
-#CMD ["rails", "server", "-b", "0.0.0.0"]
