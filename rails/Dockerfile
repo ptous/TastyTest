@@ -30,4 +30,5 @@ RUN cd sofa && rails generate comfy:cms
 COPY db_init /bin
 RUN chmod 555 /bin/db_init
 
+RUN echo "Comfy::Cms::Site.create!(identifier: 'default-site', hostname: 'change-me')" >> $APP_HOME/sofa/db/seeds.rb
 WORKDIR $APP_HOME/sofa

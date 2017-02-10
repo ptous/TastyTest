@@ -3,3 +3,5 @@
 sleep 5
 rake db:setup
 rake db:migrate
+rake db:seed
+rake comfortable_mexican_sofa:fixtures:import TO=default-site FROM=sample-site
