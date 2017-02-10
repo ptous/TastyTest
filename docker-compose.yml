@@ -11,16 +11,20 @@ services:
     ports:
       - "80:8080"
     links:
-      - web
+      - rails
     environment:
       - VIRTUAL_PORT=3000
-      - VIRTUAL_HOST=web
+      - VIRTUAL_HOST=rails
+    depends_on:
+      - db
 
-  web:
+  rails:
     image: "tt/rails"
     build: rails
     command: rails server --port 3000 --binding "0.0.0.0"
     expose:
       - "3000"
     links:
+      - db
+    depends_on:
       - db
