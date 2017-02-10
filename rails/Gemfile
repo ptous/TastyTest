@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "rails","~> 5"
+gem "pg"
+gem "turbolinks"
+gem "comfortable_mexican_sofa", "~> 1.12"
+gem "listen", "~> 3.1.5"

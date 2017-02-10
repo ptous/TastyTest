@@ -1,0 +1,17 @@
+FROM centos:centos7
+
+RUN yum -y update; yum clean all
+RUN yum -y install epel-release; yum clean all
+RUN yum -y install nodejs npm; yum clean all
+
+RUN yum -y install yum install ruby; yum clean all
+RUN yum -y install rubygems; yum clean all
+
+COPY Gemfile ./
+RUN bundle install
+RUN rails new comfy
+RUN cd comfy && rails generate comfy:cms
+RUN rake db:migrate
+CMD ["rails","server", "-b", "0.0.0.0"]
+
+EXPOSE 3000
